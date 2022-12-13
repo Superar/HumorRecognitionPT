@@ -9,6 +9,7 @@ scikit-learn = "*"
 setuptools = "*"
 pandas = "*"
 nlpyport = "*"
+joblib = "*"
 
 [dev-packages]
 src = {editable = true, path = "."}

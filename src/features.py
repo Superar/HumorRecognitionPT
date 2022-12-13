@@ -8,8 +8,11 @@ logger = logging.getLogger('HumorRecognitionPT')
 
 
 def calculate_tfidf(corpus: pd.DataFrame) -> tuple[TfidfVectorizer, csr_matrix]:
+    global dummy_analyzer
+    def dummy_analyzer(toks): return toks
+
     logger.info('Calculating TF-IDF counts')
-    vectorizer = TfidfVectorizer(analyzer=lambda toks: toks)
+    vectorizer = TfidfVectorizer(analyzer=dummy_analyzer)
     counts = vectorizer.fit_transform(corpus['Tokens'])
     logger.info('TF-IDF done')
     logger.debug(f'TF-IDF matrix shape: {counts.shape}')

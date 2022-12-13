@@ -2,3 +2,4 @@ data/
 *.egg-info/
 build
 __pycache__/
+results/models/

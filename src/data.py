@@ -1,20 +1,11 @@
+import logging
 from pathlib import Path
-from NLPyPort.FullPipeline import TokPort_config_file
 
 import NLPyPort as pyport
 import pandas as pd
-
-import logging
+from NLPyPort.FullPipeline import TokPort_config_file
 
 logger = logging.getLogger('HumorRecognitionPT')
-
-
-def read_file(filename: Path) -> pd.DataFrame:
-    logger.info(f'Reading file {filename}')
-    df = pd.read_csv(filename, sep='\t',
-                     names=['Text', 'Label'])
-    logger.debug(f'\n\n{df}')
-    return df
 
 
 def preprocess_data(corpus: pd.DataFrame) -> pd.DataFrame:

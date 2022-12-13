@@ -3,5 +3,5 @@
         "**.egg-info/": true,
         "build": true
     },
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "off"
 }

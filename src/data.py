@@ -4,13 +4,21 @@ from NLPyPort.FullPipeline import TokPort_config_file
 import NLPyPort as pyport
 import pandas as pd
 
+import logging
+
+logger = logging.getLogger('HumorRecognitionPT')
+
 
 def read_file(filename: Path) -> pd.DataFrame:
-    return pd.read_csv(filename, sep='\t',
-                       names=['Sentence', 'Label'])
+    logger.info(f'Reading file {filename}')
+    df = pd.read_csv(filename, sep='\t',
+                     names=['Text', 'Label'])
+    logger.debug(f'\n\n{df}')
+    return df
 
 
 def preprocess_data(corpus: pd.DataFrame) -> pd.DataFrame:
+    logger.info('Starting preprocessing')
     pyport.load_config()
 
     def tokenizer(sent):
@@ -22,8 +30,12 @@ def preprocess_data(corpus: pd.DataFrame) -> pd.DataFrame:
     def lemmatizer(sent):
         return pyport.lematizador_normal(sent['Tokens'], sent['POS Tags'])
 
-    corpus['Tokens'] = corpus['Sentence'].apply(tokenizer)
+    logger.info('Tokenizing corpus')
+    corpus['Tokens'] = corpus['Text'].apply(tokenizer)
+    logger.info('Tagging corpus')
     corpus['POS Tags'] = corpus['Tokens'].apply(tagger)
+    logger.info('Lemmatizing corpus')
     corpus['Lemma'] = corpus.apply(lemmatizer, axis=1)
 
+    logger.info('Preprocessing done')
     return corpus

@@ -51,7 +51,7 @@ def parse_args() -> Namespace:
     # train
     parser_train = subparsers.add_parser('train')
     parser_train.add_argument('--input', '-i',
-                              help='Training data in JSON format.',
+                              help='Training data in HDF5 format.',
                               required=True, type=Path)
     parser_train.add_argument('--output', '-o',
                               help='Directory path to save the model.',
@@ -100,18 +100,15 @@ def main(args):
 
         args.output.mkdir(parents=True, exist_ok=True)
         vectorizer_path = args.output / 'vectorizer.pkl'
-        data_path = args.output / 'data.json'
+        data_path = args.output / 'data.hdf5'
         logger.info(f'Saving vectorizer to {vectorizer_path}')
         with (vectorizer_path).open('wb') as file_:
             pickle.dump(vectorizer, file_)
         logger.info(f'Saving data to {data_path}')
-        df.to_json(data_path,
-                   orient='records',
-                   force_ascii=False,
-                   indent=4)
+        df.to_hdf(data_path, key='df', mode='w')
     elif args.command == 'train':
         logger.info(f'Loading file {args.input}')
-        df = pd.read_json(args.input)
+        df = pd.read_hdf(args.input)
         logger.debug(f'\n\n{df}')
 
         X = df.drop(columns=['Label'])
@@ -124,7 +121,7 @@ def main(args):
         joblib.dump(model, model_path)
     elif args.command == 'test':
         logger.info(f'Loading file {args.input}')
-        df = pd.read_json(args.input)
+        df = pd.read_hdf(args.input)
         logger.debug(f'\n\n{df}')
 
         model_path = args.model / 'model.joblib'

@@ -10,18 +10,11 @@ parser.add_argument('output', type=Path)
 parser.add_argument('--ratio', default=0.3)
 args = parser.parse_args()
 
-df = pd.read_json(args.input)
+df = pd.read_hdf(args.input)
 train, test = train_test_split(df, test_size=args.ratio)
 print(f'Train\n\n{train}')
 print(f'Test\n\n{test}')
 
 args.output.mkdir(parents=True, exist_ok=True)
-train.to_json(args.output / 'train.json',
-              orient='records',
-              force_ascii=False,
-              indent=4)
-
-test.to_json(args.output / 'test.json',
-              orient='records',
-              force_ascii=False,
-              indent=4)
+train.to_hdf(args.output / 'train.hdf5', key='train', mode='w')
+test.to_hdf(args.output / 'test.hdf5', key='test', mode='w')

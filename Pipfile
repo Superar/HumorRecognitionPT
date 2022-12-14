@@ -10,6 +10,7 @@ setuptools = "*"
 pandas = "*"
 nlpyport = "*"
 joblib = "*"
+tables = "*"
 
 [dev-packages]
 src = {editable = true, path = "."}

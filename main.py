@@ -107,9 +107,9 @@ def main(args):
         y = df['Label']
         model = train_model(X, y)
 
-        outdir = args.output / (time.strftime(r'%d.%m.%Y-%H.%M.%S') + '-model')
-        outdir.mkdir(parents=True, exist_ok=True)
-        joblib.dump(model, outdir / 'model.joblib')
+        args.output.mkdir(parents=True, exist_ok=True)
+        joblib.dump(model, args.output / 'model.joblib')
+        logger.info(f'Model saved to {args.output / "model.joblib"}')
     elif args.command == 'test':
         logger.info(f'Loading file {args.input}')
         df = pd.read_json(args.input)

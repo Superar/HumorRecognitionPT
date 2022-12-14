@@ -40,6 +40,13 @@ def parse_args() -> Namespace:
     parser_feature.add_argument('--output', '-o',
                                 help='Directory path to save count models and feature matrix.',
                                 required=True, type=Path)
+    parser_feature.add_argument('--ngram', '-n',
+                                help='Which n-gram configuration to use to calculate the TF-IDF counts',
+                                required=False, type=str,
+                                choices=['1', '2', '3',
+                                         '1+2', '2+3',
+                                         '1+2+3'],
+                                default='1+2+3')
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -87,14 +94,18 @@ def main(args):
                        force_ascii=False, indent=4)
     elif args.command == 'feature-extraction' or args.command == 'feat':
         corpus = pd.read_json(args.input)
-        vectorizer, features = calculate_tfidf(corpus)
+        vectorizer, features = calculate_tfidf(corpus, args.ngram)
         df = pd.DataFrame(features.toarray())
         df['Label'] = corpus['Label']
 
         args.output.mkdir(parents=True, exist_ok=True)
-        with (args.output / 'vectorizer.pkl').open('wb') as file_:
+        vectorizer_path = args.output / 'vectorizer.pkl'
+        data_path = args.output / 'data.json'
+        logger.info(f'Saving vectorizer to {vectorizer_path}')
+        with (vectorizer_path).open('wb') as file_:
             pickle.dump(vectorizer, file_)
-        df.to_json(args.output / 'data.json',
+        logger.info(f'Saving data to {data_path}')
+        df.to_json(data_path,
                    orient='records',
                    force_ascii=False,
                    indent=4)
@@ -108,8 +119,9 @@ def main(args):
         model = train_model(X, y)
 
         args.output.mkdir(parents=True, exist_ok=True)
-        joblib.dump(model, args.output / 'model.joblib')
-        logger.info(f'Model saved to {args.output / "model.joblib"}')
+        model_path = args.output / 'model.joblib'
+        logger.info(f'Saving model to {model_path}')
+        joblib.dump(model, model_path)
     elif args.command == 'test':
         logger.info(f'Loading file {args.input}')
         df = pd.read_json(args.input)

@@ -12,7 +12,7 @@ from sklearn.model_selection import train_test_split
 
 from src.classification import train_model
 from src.data import preprocess_data
-from src.features import calculate_tfidf
+from src.features import calculate_features
 
 
 def parse_args() -> Namespace:
@@ -47,6 +47,10 @@ def parse_args() -> Namespace:
                                          '1+2', '2+3',
                                          '1+2+3'],
                                 default='1+2+3')
+    parser_feature.add_argument('--sentlex',
+                                help='Path to the sentiment lexicon in JSON format.',
+                                required=False, type=Path,
+                                default=None)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -94,18 +98,21 @@ def main(args):
                        force_ascii=False, indent=4)
     elif args.command == 'feature-extraction' or args.command == 'feat':
         corpus = pd.read_json(args.input)
-        vectorizer, features = calculate_tfidf(corpus, args.ngram)
-        df = pd.DataFrame(features.toarray())
-        df['Label'] = corpus['Label']
+        vectorizer, features = calculate_features(corpus,
+                                                  args.ngram,
+                                                  args.sentlex)
 
+        # Save vectorizer
         args.output.mkdir(parents=True, exist_ok=True)
         vectorizer_path = args.output / 'vectorizer.pkl'
         data_path = args.output / 'data.hdf5'
         logger.info(f'Saving vectorizer to {vectorizer_path}')
         with (vectorizer_path).open('wb') as file_:
             pickle.dump(vectorizer, file_)
+
+        # Save features
         logger.info(f'Saving data to {data_path}')
-        df.to_hdf(data_path, key='df', mode='w')
+        features.to_hdf(data_path, key='df', mode='w')
     elif args.command == 'train':
         logger.info(f'Loading file {args.input}')
         df = pd.read_hdf(args.input)

@@ -22,12 +22,16 @@ def more_positive_or_negative(instance: pd.Series) -> int:
 def calculate_sentiment(corpus: pd.DataFrame, lexicon: Path) -> tuple[int, int]:
     corpus = corpus.copy()  # Prevent inplace operations
     lexicon = pd.read_json(lexicon, orient='index')
-    tokens = corpus['Tokens'].map(to_lower)
+    tokens = corpus['Tokens'].map(lambda x: pd.Series(to_lower(x)))
     logger.debug(f'Sentiment lexicon\n\n{lexicon}')
 
-    toks_in_lex = tokens.map(lambda x: lexicon.index.intersection(x))
+    logger.info('Retrieving tokens in the lexicon')
+    toks_in_lex = tokens.map(
+        lambda x: x[x.isin(lexicon.index)])
+    logger.info('Retrieving token sentiments')
     corpus['Sentiments'] = toks_in_lex.map(
         lambda x: lexicon.loc[x, 'Polarity'])
+    logger.info('Computing sentiment features')
     corpus['Positive Sentiment'] = corpus['Sentiments'].map(
         lambda x: np.count_nonzero(x == 1))
     corpus['Negative Sentiment'] = corpus['Sentiments'].map(

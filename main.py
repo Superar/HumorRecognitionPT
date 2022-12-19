@@ -55,6 +55,10 @@ def parse_args() -> Namespace:
                                 help='Path to the slang lexicon in JSON format.',
                                 required=False, type=Path,
                                 default=None)
+    parser_feature.add_argument('--alliteration',
+                                help='Flag to use alliteration features',
+                                required=False, action='store_true',
+                                default=False)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -107,7 +111,8 @@ def main(args):
         vectorizer, features = calculate_features(corpus,
                                                   args.ngram,
                                                   args.sentlex,
-                                                  args.slang)
+                                                  args.slang,
+                                                  args.alliteration)
         logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:

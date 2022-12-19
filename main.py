@@ -51,6 +51,10 @@ def parse_args() -> Namespace:
                                 help='Path to the sentiment lexicon in JSON format.',
                                 required=False, type=Path,
                                 default=None)
+    parser_feature.add_argument('--slang',
+                                help='Path to the slang lexicon in JSON format.',
+                                required=False, type=Path,
+                                default=None)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -99,9 +103,11 @@ def main(args):
                            force_ascii=False, indent=4)
     elif args.command == 'feature-extraction' or args.command == 'feat':
         corpus = pd.read_json(args.input)
+        logger.debug(f'Corpus\n\n{corpus}')
         vectorizer, features = calculate_features(corpus,
                                                   args.ngram,
-                                                  args.sentlex)
+                                                  args.sentlex,
+                                                  args.slang)
         logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:

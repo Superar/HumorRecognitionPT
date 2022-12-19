@@ -29,7 +29,7 @@ def parse_args() -> Namespace:
                                    required=True, type=Path)
     parser_preprocess.add_argument('--output', '-o',
                                    help='File path to save preprocessed data in JSON format.',
-                                   required=True, type=Path)
+                                   required=False, type=Path)
 
     # feature_extraction
     parser_feature = subparsers.add_parser('feature-extraction',
@@ -39,7 +39,7 @@ def parse_args() -> Namespace:
                                 required=True, type=Path)
     parser_feature.add_argument('--output', '-o',
                                 help='Directory path to save count models and feature matrix.',
-                                required=True, type=Path)
+                                required=False, type=Path)
     parser_feature.add_argument('--ngram', '-n',
                                 help='Which n-gram configuration to use to calculate the TF-IDF counts',
                                 required=False, type=str,
@@ -59,7 +59,7 @@ def parse_args() -> Namespace:
                               required=True, type=Path)
     parser_train.add_argument('--output', '-o',
                               help='Directory path to save the model.',
-                              required=True, type=Path)
+                              required=False, type=Path)
 
     # test
     parser_test = subparsers.add_parser('test')
@@ -94,25 +94,27 @@ def main(args):
         logger.debug(f'\n\n{corpus}')
 
         corpus = preprocess_data(corpus)
-        corpus.to_json(args.output, orient='records',
-                       force_ascii=False, indent=4)
+        if args.output:
+            corpus.to_json(args.output, orient='records',
+                           force_ascii=False, indent=4)
     elif args.command == 'feature-extraction' or args.command == 'feat':
         corpus = pd.read_json(args.input)
         vectorizer, features = calculate_features(corpus,
                                                   args.ngram,
                                                   args.sentlex)
 
-        # Save vectorizer
-        args.output.mkdir(parents=True, exist_ok=True)
-        vectorizer_path = args.output / 'vectorizer.pkl'
-        data_path = args.output / 'data.hdf5'
-        logger.info(f'Saving vectorizer to {vectorizer_path}')
-        with (vectorizer_path).open('wb') as file_:
-            pickle.dump(vectorizer, file_)
+        if args.output:
+            # Save vectorizer
+            args.output.mkdir(parents=True, exist_ok=True)
+            vectorizer_path = args.output / 'vectorizer.pkl'
+            data_path = args.output / 'data.hdf5'
+            logger.info(f'Saving vectorizer to {vectorizer_path}')
+            with (vectorizer_path).open('wb') as file_:
+                pickle.dump(vectorizer, file_)
 
-        # Save features
-        logger.info(f'Saving data to {data_path}')
-        features.to_hdf(data_path, key='df', mode='w')
+            # Save features
+            logger.info(f'Saving data to {data_path}')
+            features.to_hdf(data_path, key='df', mode='w')
     elif args.command == 'train':
         logger.info(f'Loading file {args.input}')
         df = pd.read_hdf(args.input)
@@ -122,10 +124,11 @@ def main(args):
         y = df['Label']
         model = train_model(X, y)
 
-        args.output.mkdir(parents=True, exist_ok=True)
-        model_path = args.output / 'model.joblib'
-        logger.info(f'Saving model to {model_path}')
-        joblib.dump(model, model_path)
+        if args.output:
+            args.output.mkdir(parents=True, exist_ok=True)
+            model_path = args.output / 'model.joblib'
+            logger.info(f'Saving model to {model_path}')
+            joblib.dump(model, model_path)
     elif args.command == 'test':
         logger.info(f'Loading file {args.input}')
         df = pd.read_hdf(args.input)

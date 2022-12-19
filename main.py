@@ -102,6 +102,7 @@ def main(args):
         vectorizer, features = calculate_features(corpus,
                                                   args.ngram,
                                                   args.sentlex)
+        logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:
             # Save vectorizer

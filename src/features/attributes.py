@@ -12,10 +12,8 @@ def calculate_features(corpus: pd.DataFrame,
                        sentiment_lexicon: Path = None):
     vectorizer, features = calculate_tfidf(corpus, ngram)
     if sentiment_lexicon:
-        positive_counts, negative_counts = calculate_sentiment(
-            corpus, sentiment_lexicon)
-        features['Positive Sentiment'] = positive_counts
-        features['Negative Sentiment'] = negative_counts
+       sentiment_features = calculate_sentiment(corpus, sentiment_lexicon)
+       features = features.join(sentiment_features)
     features['Label'] = corpus['Label']
 
     return vectorizer, features

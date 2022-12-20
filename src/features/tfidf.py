@@ -17,7 +17,9 @@ def calculate_tfidf(corpus: pd.DataFrame, ngram: str = '1+2+3') -> tuple[TfidfVe
     logger.info('Calculating TF-IDF counts')
     vectorizer = TfidfVectorizer(tokenizer=dummy_tokenizer,
                                  preprocessor=dummy_tokenizer,
-                                 ngram_range=ngram_range)
+                                 ngram_range=ngram_range,
+                                 min_df=2, max_df=0.75,
+                                 max_features=1000)
     counts = vectorizer.fit_transform(corpus['Tokens'])
     logger.info('TF-IDF done')
     logger.debug(f'TF-IDF matrix shape: {counts.shape}')

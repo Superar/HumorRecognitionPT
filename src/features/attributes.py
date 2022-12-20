@@ -2,8 +2,9 @@ import logging
 from pathlib import Path
 
 import pandas as pd
-from src.features import (calculate_alliteration, calculate_sentiment,
-                          calculate_slang, calculate_tfidf)
+from src.features import (calculate_alliteration, calculate_antonym,
+                          calculate_sentiment, calculate_slang,
+                          calculate_tfidf)
 
 logger = logging.getLogger('HumorRecognitionPT')
 
@@ -12,7 +13,8 @@ def calculate_features(corpus: pd.DataFrame,
                        ngram: str = '1+2+3',
                        sentiment_lexicon: Path = None,
                        slang_lexicon: Path = None,
-                       alliteration: bool = False):
+                       alliteration: bool = False,
+                       antonym_lexicon: Path = None):
     vectorizer, features = calculate_tfidf(corpus, ngram)
     if sentiment_lexicon:
         sentiment_features = calculate_sentiment(corpus, sentiment_lexicon)
@@ -23,6 +25,9 @@ def calculate_features(corpus: pd.DataFrame,
     if alliteration:
         alliteration_features = calculate_alliteration(corpus)
         features = features.join(alliteration_features)
+    if antonym_lexicon:
+        antonym_features = calculate_antonym(corpus, antonym_lexicon)
+        features = features.join(antonym_features)
     features['Label'] = corpus['Label']
 
     return vectorizer, features

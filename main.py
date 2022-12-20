@@ -59,6 +59,10 @@ def parse_args() -> Namespace:
                                 help='Flag to use alliteration features',
                                 required=False, action='store_true',
                                 default=False)
+    parser_feature.add_argument('--antonym',
+                                help='Path to the antonym triples lexicon in JSON format.',
+                                required=False, type=Path,
+                                default=None)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -112,7 +116,8 @@ def main(args):
                                                   args.ngram,
                                                   args.sentlex,
                                                   args.slang,
-                                                  args.alliteration)
+                                                  args.alliteration,
+                                                  args.antonym)
         logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:

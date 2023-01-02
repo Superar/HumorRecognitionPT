@@ -12,6 +12,7 @@ nlpyport = "*"
 joblib = "*"
 tables = "*"
 gensim = "*"
+openpyxl = "*"
 
 [dev-packages]
 src = {editable = true, path = "."}

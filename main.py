@@ -67,6 +67,11 @@ def parse_args() -> Namespace:
                                 help='Path to the word embeddings file in Gensim format.',
                                 required=False, type=Path,
                                 default=None)
+    parser_feature.add_argument('--mwp',
+                                help=('Path to the Minho World Pool lexicon for imageability '
+                                      'and concreteness features in JSON format.'),
+                                required=False, type=Path,
+                                default=None)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -122,7 +127,8 @@ def main(args):
                                                   args.slang,
                                                   args.alliteration,
                                                   args.antonym,
-                                                  args.embeddings)
+                                                  args.embeddings,
+                                                  args.mwp)
         logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:

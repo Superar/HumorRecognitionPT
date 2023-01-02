@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 from src.features import (calculate_alliteration, calculate_antonym,
                           calculate_sentiment, calculate_slang,
-                          calculate_tfidf)
+                          calculate_tfidf, calculate_embeddings)
 
 logger = logging.getLogger('HumorRecognitionPT')
 
@@ -14,7 +14,8 @@ def calculate_features(corpus: pd.DataFrame,
                        sentiment_lexicon: Path = None,
                        slang_lexicon: Path = None,
                        alliteration: bool = False,
-                       antonym_lexicon: Path = None):
+                       antonym_lexicon: Path = None,
+                       embeddings: Path = None):
     vectorizer, features = calculate_tfidf(corpus, ngram)
     if sentiment_lexicon:
         sentiment_features = calculate_sentiment(corpus, sentiment_lexicon)
@@ -28,6 +29,9 @@ def calculate_features(corpus: pd.DataFrame,
     if antonym_lexicon:
         antonym_features = calculate_antonym(corpus, antonym_lexicon)
         features = features.join(antonym_features)
+    if embeddings:
+        embeddings_features = calculate_embeddings(corpus, embeddings)
+        features = features.join(embeddings_features)
     features['Label'] = corpus['Label']
 
     return vectorizer, features

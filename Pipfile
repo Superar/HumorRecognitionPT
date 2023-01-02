@@ -11,6 +11,7 @@ pandas = "*"
 nlpyport = "*"
 joblib = "*"
 tables = "*"
+gensim = "*"
 
 [dev-packages]
 src = {editable = true, path = "."}

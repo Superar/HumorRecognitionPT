@@ -63,6 +63,10 @@ def parse_args() -> Namespace:
                                 help='Path to the antonym triples lexicon in JSON format.',
                                 required=False, type=Path,
                                 default=None)
+    parser_feature.add_argument('--embeddings',
+                                help='Path to the word embeddings file in Gensim format.',
+                                required=False, type=Path,
+                                default=None)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -117,7 +121,8 @@ def main(args):
                                                   args.sentlex,
                                                   args.slang,
                                                   args.alliteration,
-                                                  args.antonym)
+                                                  args.antonym,
+                                                  args.embeddings)
         logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:

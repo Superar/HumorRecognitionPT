@@ -6,4 +6,5 @@ from .antonym import calculate_antonym
 from .embeddings import calculate_embeddings
 from .imageability_concreteness import calculate_imageability_concreteness
 from .ner import calculate_ner
+from .ambiguity import calculate_ambiguity
 from .attributes import calculate_features

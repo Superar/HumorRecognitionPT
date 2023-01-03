@@ -2,11 +2,11 @@ import logging
 from pathlib import Path
 
 import pandas as pd
-from src.features import (calculate_alliteration, calculate_antonym,
+from src.features import (calculate_alliteration, calculate_ambiguity,
+                          calculate_antonym, calculate_embeddings,
+                          calculate_imageability_concreteness, calculate_ner,
                           calculate_sentiment, calculate_slang,
-                          calculate_tfidf, calculate_embeddings,
-                          calculate_imageability_concreteness,
-                          calculate_ner)
+                          calculate_tfidf)
 
 logger = logging.getLogger('HumorRecognitionPT')
 
@@ -19,7 +19,8 @@ def calculate_features(corpus: pd.DataFrame,
                        antonym_lexicon: Path = None,
                        embeddings: Path = None,
                        mwp: Path = None,
-                       ner: bool = False):
+                       ner: bool = False,
+                       ambiguity: bool = False):
     vectorizer, features = calculate_tfidf(corpus, ngram)
     if sentiment_lexicon:
         sentiment_features = calculate_sentiment(corpus, sentiment_lexicon)
@@ -42,6 +43,9 @@ def calculate_features(corpus: pd.DataFrame,
     if ner:
         ner_features = calculate_ner(corpus)
         features = features.join(ner_features)
+    if ambiguity:
+        ambiguity_features = calculate_ambiguity(corpus)
+        features = features.join(ambiguity_features)
     features['Label'] = corpus['Label']
 
     return vectorizer, features

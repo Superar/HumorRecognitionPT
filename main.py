@@ -74,6 +74,10 @@ def parse_args() -> Namespace:
                                 help='Flag to use NER features',
                                 required=False, action='store_true',
                                 default=False)
+    parser_feature.add_argument('--ambiguity',
+                                help='Flag to use ambiguity features from OpenWordNet-PT',
+                                required=False, action='store_true',
+                                default=False)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -131,7 +135,8 @@ def main(args):
                                                   args.antonym,
                                                   args.embeddings,
                                                   args.mwp,
-                                                  args.ner)
+                                                  args.ner,
+                                                  args.ambiguity)
         logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:

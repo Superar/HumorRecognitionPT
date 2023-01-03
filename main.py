@@ -6,9 +6,7 @@ from pathlib import Path
 
 import joblib
 import pandas as pd
-from scipy.sparse import load_npz, save_npz
 from sklearn.metrics import classification_report
-from sklearn.model_selection import train_test_split
 
 from src.classification import train_model
 from src.data import preprocess_data

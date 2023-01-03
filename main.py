@@ -38,6 +38,10 @@ def parse_args() -> Namespace:
     parser_feature.add_argument('--output', '-o',
                                 help='Directory path to save count models and feature matrix.',
                                 required=False, type=Path)
+    parser_feature.add_argument('--tfidf',
+                                help='Flag to use TF-IDF counts',
+                                required=False, action='store_true',
+                                default=False)
     parser_feature.add_argument('--ngram', '-n',
                                 help='Which n-gram configuration to use to calculate the TF-IDF counts',
                                 required=False, type=str,
@@ -128,6 +132,7 @@ def main(args):
         corpus = pd.read_json(args.input)
         logger.debug(f'Corpus\n\n{corpus}')
         vectorizer, features = calculate_features(corpus,
+                                                  args.tfidf,
                                                   args.ngram,
                                                   args.sentlex,
                                                   args.slang,
@@ -140,15 +145,16 @@ def main(args):
         logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:
-            # Save vectorizer
             args.output.mkdir(parents=True, exist_ok=True)
-            vectorizer_path = args.output / 'vectorizer.pkl'
-            data_path = args.output / 'data.hdf5'
-            logger.info(f'Saving vectorizer to {vectorizer_path}')
-            with (vectorizer_path).open('wb') as file_:
-                pickle.dump(vectorizer, file_)
+            # Save vectorizer
+            if args.tfidf:
+                vectorizer_path = args.output / 'vectorizer.pkl'
+                logger.info(f'Saving vectorizer to {vectorizer_path}')
+                with (vectorizer_path).open('wb') as file_:
+                    pickle.dump(vectorizer, file_)
 
             # Save features
+            data_path = args.output / 'data.hdf5'
             logger.info(f'Saving data to {data_path}')
             features.to_hdf(data_path, key='df', mode='w')
     elif args.command == 'train':

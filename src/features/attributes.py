@@ -12,6 +12,7 @@ logger = logging.getLogger('HumorRecognitionPT')
 
 
 def calculate_features(corpus: pd.DataFrame,
+                       tfidf: bool = False,
                        ngram: str = '1+2+3',
                        sentiment_lexicon: Path = None,
                        slang_lexicon: Path = None,
@@ -21,7 +22,12 @@ def calculate_features(corpus: pd.DataFrame,
                        mwp: Path = None,
                        ner: bool = False,
                        ambiguity: bool = False):
-    vectorizer, features = calculate_tfidf(corpus, ngram)
+    features = pd.DataFrame(corpus['Label'])
+    vectorizer = None
+
+    if tfidf:
+        vectorizer, tfidf_features = calculate_tfidf(corpus, ngram)
+        features = features.join(tfidf_features)
     if sentiment_lexicon:
         sentiment_features = calculate_sentiment(corpus, sentiment_lexicon)
         features = features.join(sentiment_features)
@@ -46,6 +52,5 @@ def calculate_features(corpus: pd.DataFrame,
     if ambiguity:
         ambiguity_features = calculate_ambiguity(corpus)
         features = features.join(ambiguity_features)
-    features['Label'] = corpus['Label']
 
     return vectorizer, features

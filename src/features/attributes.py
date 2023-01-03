@@ -5,7 +5,8 @@ import pandas as pd
 from src.features import (calculate_alliteration, calculate_antonym,
                           calculate_sentiment, calculate_slang,
                           calculate_tfidf, calculate_embeddings,
-                          calculate_imageability_concreteness)
+                          calculate_imageability_concreteness,
+                          calculate_ner)
 
 logger = logging.getLogger('HumorRecognitionPT')
 
@@ -17,7 +18,8 @@ def calculate_features(corpus: pd.DataFrame,
                        alliteration: bool = False,
                        antonym_lexicon: Path = None,
                        embeddings: Path = None,
-                       mwp: Path = None):
+                       mwp: Path = None,
+                       ner: bool = False):
     vectorizer, features = calculate_tfidf(corpus, ngram)
     if sentiment_lexicon:
         sentiment_features = calculate_sentiment(corpus, sentiment_lexicon)
@@ -37,6 +39,9 @@ def calculate_features(corpus: pd.DataFrame,
     if mwp:
         mwp_features = calculate_imageability_concreteness(corpus, mwp)
         features = features.join(mwp_features)
+    if ner:
+        ner_features = calculate_ner(corpus)
+        features = features.join(ner_features)
     features['Label'] = corpus['Label']
 
     return vectorizer, features

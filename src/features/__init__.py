@@ -5,4 +5,5 @@ from .alliteration import calculate_alliteration
 from .antonym import calculate_antonym
 from .embeddings import calculate_embeddings
 from .imageability_concreteness import calculate_imageability_concreteness
+from .ner import calculate_ner
 from .attributes import calculate_features

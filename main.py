@@ -70,6 +70,10 @@ def parse_args() -> Namespace:
                                       'and concreteness features in JSON format.'),
                                 required=False, type=Path,
                                 default=None)
+    parser_feature.add_argument('--ner',
+                                help='Flag to use NER features',
+                                required=False, action='store_true',
+                                default=False)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -126,7 +130,8 @@ def main(args):
                                                   args.alliteration,
                                                   args.antonym,
                                                   args.embeddings,
-                                                  args.mwp)
+                                                  args.mwp,
+                                                  args.ner)
         logger.debug(f'Feature matrix\n\n{features}')
 
         if args.output:

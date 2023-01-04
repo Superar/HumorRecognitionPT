@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 parser = argparse.ArgumentParser()
 parser.add_argument('input')
 parser.add_argument('output', type=Path)
-parser.add_argument('--ratio', default=0.3)
+parser.add_argument('--ratio', default=0.3, type=float)
 args = parser.parse_args()
 
 df = pd.read_hdf(args.input)

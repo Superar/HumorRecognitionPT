@@ -91,6 +91,12 @@ def parse_args() -> Namespace:
     parser_train.add_argument('--output', '-o',
                               help='Directory path to save the model.',
                               required=False, type=Path)
+    parser_train.add_argument('--method', '-m',
+                              help='Which classification approach to use from Scikit-learn',
+                              required=False, type=str,
+                              choices=['SVC', 'SVCLinear', 'MultinomialNB',
+                                       'GaussianNB', 'RandomForest'],
+                              default='SVC')
 
     # test
     parser_test = subparsers.add_parser('test')
@@ -164,7 +170,7 @@ def main(args):
 
         X = df.drop(columns=['Label'])
         y = df['Label']
-        model = train_model(X, y)
+        model = train_model(X, y, args.method)
 
         if args.output:
             args.output.mkdir(parents=True, exist_ok=True)

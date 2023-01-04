@@ -6,7 +6,6 @@ from pathlib import Path
 
 import joblib
 import pandas as pd
-from sklearn.metrics import classification_report
 
 from src.classification import train_model
 from src.data import preprocess_data
@@ -106,6 +105,10 @@ def parse_args() -> Namespace:
     parser_test.add_argument('--model', '-m',
                              help='Model directory path.',
                              required=True, type=Path)
+    parser_test.add_argument('--output', '-o',
+                             help='Path to the file to save the predictions in JSON format.',
+                             required=False, type=Path,
+                             default=None)
     return parser.parse_args()
 
 
@@ -180,6 +183,7 @@ def main(args):
     elif args.command == 'test':
         logger.info(f'Loading file {args.input}')
         df = pd.read_hdf(args.input)
+        df.columns = df.columns.astype(str)
         logger.debug(f'\n\n{df}')
 
         model_path = args.model / 'model.joblib'
@@ -188,10 +192,14 @@ def main(args):
         logger.debug(f'Model loaded: {model}')
 
         X = df.drop(columns=['Label'])
-        y = df['Label']
-        results = model.predict(X)
-        evaluation = classification_report(y, results)
-        logger.info(f'\n\n{evaluation}')
+        results = df[['Label']]
+        results['Prediction'] = model.predict(X)
+        logger.debug(f'\n\n{results}')
+
+        if args.output:
+            logger.info(f'Saving predictions to {args.output}')
+            results.to_json(args.output, force_ascii=False, indent=4)
+            logger.info('Predictions saved')
 
 
 if __name__ == '__main__':

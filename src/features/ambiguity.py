@@ -19,6 +19,7 @@ def calculate_ambiguity(corpus: pd.DataFrame) -> pd.DataFrame:
     num_senses = lemmas.apply(number_of_senses)
     num_senses = pd.DataFrame(num_senses.to_list(),
                               columns=['Average number of senses',
-                                       'Maximum number of senses'])
+                                       'Maximum number of senses'],
+                              index=corpus.index)
     logger.debug(f'Number of senses\n\n{num_senses}')
     return num_senses

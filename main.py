@@ -197,6 +197,7 @@ def main(args):
         logger.debug(f'\n\n{results}')
 
         if args.output:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
             logger.info(f'Saving predictions to {args.output}')
             results.to_json(args.output, force_ascii=False, indent=4)
             logger.info('Predictions saved')

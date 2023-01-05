@@ -1,12 +1,16 @@
 import logging
+from pathlib import Path
 
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+import pickle
 
 logger = logging.getLogger('HumorRecognitionPT')
 
 
-def calculate_tfidf(corpus: pd.DataFrame, ngram: str = '1+2+3') -> tuple[TfidfVectorizer, pd.DataFrame]:
+def calculate_tfidf(corpus: pd.DataFrame,
+                    ngram: str = '1+2+3',
+                    vectorizer_file: Path = None) -> tuple[TfidfVectorizer, pd.DataFrame]:
     global dummy_tokenizer
     def dummy_tokenizer(toks): return toks
 
@@ -14,15 +18,27 @@ def calculate_tfidf(corpus: pd.DataFrame, ngram: str = '1+2+3') -> tuple[TfidfVe
     ngram_range = (split_ngram[0], split_ngram[-1])
     logger.debug(f'Using ngram range: {ngram_range}')
 
+    if vectorizer_file is not None:
+        logger.debug(f'Reading vectorizer from file: {vectorizer_file}')
+        with vectorizer_file.open('rb') as file_:
+            vectorizer = pickle.load(file_)
+    else:
+        logger.debug('Creating new vectorizer')
+        vectorizer = TfidfVectorizer(tokenizer=dummy_tokenizer,
+                                     preprocessor=dummy_tokenizer,
+                                     ngram_range=ngram_range,
+                                     min_df=2, max_df=0.75,
+                                     max_features=1000)
+        logger.debug('Fitting new vectorizer')
+        vectorizer = vectorizer.fit(corpus['Tokens'])
+        logger.debug('Vectorizer fit complete')
+
     logger.info('Calculating TF-IDF counts')
-    vectorizer = TfidfVectorizer(tokenizer=dummy_tokenizer,
-                                 preprocessor=dummy_tokenizer,
-                                 ngram_range=ngram_range,
-                                 min_df=2, max_df=0.75,
-                                 max_features=1000)
-    counts = vectorizer.fit_transform(corpus['Tokens'])
+    counts = vectorizer.transform(corpus['Tokens'])
     logger.info('TF-IDF done')
     logger.debug(f'TF-IDF matrix shape: {counts.shape}')
-    tf_idf = pd.DataFrame(counts.toarray())
-    tf_idf.columns = tf_idf.columns.astype(str)
+    tf_idf = pd.DataFrame(counts.toarray(),
+                          columns=vectorizer.get_feature_names_out(),
+                          index=corpus.index)
+    logger.debug(f'TF-IDF summary\n\n{tf_idf.describe()}')
     return vectorizer, tf_idf

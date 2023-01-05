@@ -41,6 +41,10 @@ def parse_args() -> Namespace:
                                 help='Flag to use TF-IDF counts',
                                 required=False, action='store_true',
                                 default=False)
+    parser_feature.add_argument('--vectorizer',
+                                help='Path to the pickled TfIdfVectorizer to use for TF-IDF counts',
+                                required=False, type=Path,
+                                default=None)
     parser_feature.add_argument('--ngram', '-n',
                                 help='Which n-gram configuration to use to calculate the TF-IDF counts',
                                 required=False, type=str,
@@ -142,6 +146,7 @@ def main(args):
         logger.debug(f'Corpus\n\n{corpus}')
         vectorizer, features = calculate_features(corpus,
                                                   args.tfidf,
+                                                  args.vectorizer,
                                                   args.ngram,
                                                   args.sentlex,
                                                   args.slang,
@@ -156,7 +161,7 @@ def main(args):
         if args.output:
             args.output.mkdir(parents=True, exist_ok=True)
             # Save vectorizer
-            if args.tfidf:
+            if args.tfidf and args.vectorizer is None:
                 vectorizer_path = args.output / 'vectorizer.pkl'
                 logger.info(f'Saving vectorizer to {vectorizer_path}')
                 with (vectorizer_path).open('wb') as file_:

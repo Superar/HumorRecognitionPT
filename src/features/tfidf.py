@@ -23,4 +23,6 @@ def calculate_tfidf(corpus: pd.DataFrame, ngram: str = '1+2+3') -> tuple[TfidfVe
     counts = vectorizer.fit_transform(corpus['Tokens'])
     logger.info('TF-IDF done')
     logger.debug(f'TF-IDF matrix shape: {counts.shape}')
-    return vectorizer, pd.DataFrame(counts.toarray())
+    tf_idf = pd.DataFrame(counts.toarray())
+    tf_idf.columns = tf_idf.columns.astype(str)
+    return vectorizer, tf_idf

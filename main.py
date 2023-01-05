@@ -183,7 +183,6 @@ def main(args):
     elif args.command == 'test':
         logger.info(f'Loading file {args.input}')
         df = pd.read_hdf(args.input)
-        df.columns = df.columns.astype(str)
         logger.debug(f'\n\n{df}')
 
         model_path = args.model / 'model.joblib'

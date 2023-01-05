@@ -23,7 +23,6 @@ def train_model(X: pd.DataFrame, y: pd.Series, method: str = 'SVC'):
         model = RandomForestClassifier()
 
     logger.debug(f'Training model: {model}')
-    X.columns = X.columns.astype(str)
     model.fit(X, y)
     logger.info('Training done')
     return model

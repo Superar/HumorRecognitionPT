@@ -22,6 +22,7 @@ def calculate_ner(corpus: pd.DataFrame) -> pd.DataFrame:
     ner_counts = ner_tags.apply(number_of_tags_per_type, args=(types,))
     ner_counts.columns = 'NER count ' + types
     ner_counts['NER count sum'] = ner_counts.sum(axis='columns')
-    logger.debug(f'NER counts\n\n{ner_counts.describe()}')
+    logger.debug(f'NER counts\n\n{ner_counts}')
+    logger.debug(f'NER counts summary\n\n{ner_counts.describe()}')
 
     return ner_counts

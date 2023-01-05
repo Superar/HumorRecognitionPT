@@ -34,6 +34,7 @@ def calculate_antonym(corpus: pd.DataFrame, lexicon: Path):
     logger.info('Counting antonym pairs')
     corpus['Antonym'] = corpus['Lemma'].map(
         lambda x: number_of_antonymy_pairs(x, lexicon))
-    logger.debug(f'Antonym features\n\n{corpus["Antonym"].describe()}')
+    logger.debug(f'Antonym features\n\n{corpus["Antonym"]}')
+    logger.debug(f'Antonym features summary\n\n{corpus["Antonym"].describe()}')
 
     return corpus['Antonym']

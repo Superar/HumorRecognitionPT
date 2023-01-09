@@ -13,9 +13,9 @@ joblib = "*"
 tables = "*"
 gensim = "*"
 openpyxl = "*"
+src = {editable = true, path = "."}
 
 [dev-packages]
-src = {editable = true, path = "."}
 autopep8 = "*"
 
 [requires]

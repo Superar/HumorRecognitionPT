@@ -9,6 +9,7 @@ import pandas as pd
 from src.classification import train_model
 from src.data import preprocess_data
 from src.features import calculate_features
+from src import commands
 
 
 def parse_args() -> Namespace:
@@ -26,6 +27,7 @@ def parse_args() -> Namespace:
     parser_preprocess.add_argument('--output', '-o',
                                    help='File path to save preprocessed data in JSON format.',
                                    required=False, type=Path)
+    parser_preprocess.set_defaults(command=commands.preprocess)
 
     # feature_extraction
     parser_feature = subparsers.add_parser('feature-extraction',
@@ -84,6 +86,7 @@ def parse_args() -> Namespace:
                                 help='Flag to use ambiguity features from OpenWordNet-PT',
                                 required=False, action='store_true',
                                 default=False)
+    parser_feature.set_defaults(command=commands.feature_extraction)
 
     # train
     parser_train = subparsers.add_parser('train')
@@ -99,6 +102,7 @@ def parse_args() -> Namespace:
                               choices=['SVC', 'SVCLinear', 'MultinomialNB',
                                        'GaussianNB', 'RandomForest'],
                               default='SVC')
+    parser_train.set_defaults(command=commands.train)
 
     # test
     parser_test = subparsers.add_parser('test')
@@ -112,6 +116,7 @@ def parse_args() -> Namespace:
                              help='Path to the file to save the predictions in JSON format.',
                              required=False, type=Path,
                              default=None)
+    parser_test.set_defaults(command=commands.test)
     return parser.parse_args()
 
 
@@ -131,79 +136,7 @@ def config_logger(verbose_level: int):
 
 
 def main(args):
-    if args.command == 'preprocess':
-        logger.info(f'Loading file {args.input}')
-        corpus = pd.read_json(args.input)
-        logger.debug(f'\n\n{corpus}')
-
-        corpus = preprocess_data(corpus)
-        if args.output:
-            corpus.to_json(args.output, orient='records',
-                           force_ascii=False, indent=4)
-    elif args.command == 'feature-extraction' or args.command == 'feat':
-        corpus = pd.read_json(args.input)
-        logger.debug(f'Corpus\n\n{corpus}')
-        vectorizer, features = calculate_features(corpus,
-                                                  args.tfidf,
-                                                  args.vectorizer,
-                                                  args.ngram,
-                                                  args.sentlex,
-                                                  args.slang,
-                                                  args.alliteration,
-                                                  args.antonym,
-                                                  args.embeddings,
-                                                  args.mwp,
-                                                  args.ner,
-                                                  args.ambiguity)
-        logger.debug(f'Feature matrix\n\n{features}')
-
-        if args.output:
-            args.output.mkdir(parents=True, exist_ok=True)
-            # Save vectorizer
-            if args.tfidf and args.vectorizer is None:
-                vectorizer_path = args.output / 'vectorizer.pkl'
-                logger.info(f'Saving vectorizer to {vectorizer_path}')
-                with (vectorizer_path).open('wb') as file_:
-                    pickle.dump(vectorizer, file_)
-
-            # Save features
-            data_path = args.output / 'data.hdf5'
-            logger.info(f'Saving data to {data_path}')
-            features.to_hdf(data_path, key='df', mode='w')
-    elif args.command == 'train':
-        logger.info(f'Loading file {args.input}')
-        df = pd.read_hdf(args.input)
-        logger.debug(f'\n\n{df}')
-
-        X = df.drop(columns=['Label'])
-        y = df['Label']
-        model = train_model(X, y, args.method)
-
-        if args.output:
-            args.output.mkdir(parents=True, exist_ok=True)
-            model_path = args.output / 'model.joblib'
-            logger.info(f'Saving model to {model_path}')
-            joblib.dump(model, model_path)
-    elif args.command == 'test':
-        logger.info(f'Loading file {args.input}')
-        df = pd.read_hdf(args.input)
-        logger.debug(f'\n\n{df}')
-
-        model_path = args.model / 'model.joblib'
-        logger.info(f'Loading model {model_path}')
-        model = joblib.load(model_path)
-        logger.debug(f'Model loaded: {model}')
-
-        X = df.drop(columns=['Label'])
-        results = df[['Label']]
-        results['Prediction'] = model.predict(X)
-        logger.debug(f'\n\n{results}')
-
-        if args.output:
-            args.output.parent.mkdir(parents=True, exist_ok=True)
-            logger.info(f'Saving predictions to {args.output}')
-            results.to_json(args.output, force_ascii=False, indent=4)
-            logger.info('Predictions saved')
+    args.command(args)
 
 
 if __name__ == '__main__':

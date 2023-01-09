@@ -10,7 +10,7 @@ logger = logging.getLogger('HumorRecognitionPT')
 def highest_character_ngram(tokens: pd.Series, n: int):
     char_ngrams = tokens.apply(
         lambda x: list(ngrams(x, n)))  # Series of list of ngrams
-    char_ngrams = char_ngrams.explode(0)  # Flatten into a Series of ngrams
+    char_ngrams = char_ngrams.explode(column=0)  # Flatten into a Series of ngrams
     highest_ngram_count = char_ngrams.value_counts().max()
     return highest_ngram_count
 
@@ -26,6 +26,6 @@ def calculate_alliteration(corpus: pd.DataFrame):
         highest_ngram_count = tokens.apply(highest_character_ngram, args=(n,))
         corpus[column] = highest_ngram_count
         new_columns.append(column)
-    
+
     logger.debug(f'Alliteration features\n\n{corpus[new_columns]}')
     return corpus[new_columns]

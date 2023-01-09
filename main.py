@@ -1,6 +1,5 @@
 import logging
 import pickle
-import time
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
 

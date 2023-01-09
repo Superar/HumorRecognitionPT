@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+from typing import Union
 
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -10,7 +11,7 @@ logger = logging.getLogger('HumorRecognitionPT')
 
 def calculate_tfidf(corpus: pd.DataFrame,
                     ngram: str = '1+2+3',
-                    vectorizer_file: Path = None) -> tuple[TfidfVectorizer, pd.DataFrame]:
+                    vectorizer_file: Union[Path, None] = None) -> tuple[TfidfVectorizer, pd.DataFrame]:
     global dummy_tokenizer
     def dummy_tokenizer(toks): return toks
 

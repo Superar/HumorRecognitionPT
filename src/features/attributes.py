@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+from typing import Union
 
 import pandas as pd
 from src.features import (calculate_alliteration, calculate_ambiguity,
@@ -7,26 +8,29 @@ from src.features import (calculate_alliteration, calculate_ambiguity,
                           calculate_imageability_concreteness, calculate_ner,
                           calculate_sentiment, calculate_slang,
                           calculate_tfidf)
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 logger = logging.getLogger('HumorRecognitionPT')
 
 
 def calculate_features(corpus: pd.DataFrame,
                        tfidf: bool = False,
-                       vectorizer: Path = None,
+                       vectorizer_path: Union[Path, None] = None,
                        ngram: str = '1+2+3',
-                       sentiment_lexicon: Path = None,
-                       slang_lexicon: Path = None,
+                       sentiment_lexicon: Union[Path, None] = None,
+                       slang_lexicon: Union[Path, None] = None,
                        alliteration: bool = False,
-                       antonym_lexicon: Path = None,
-                       embeddings: Path = None,
-                       mwp: Path = None,
+                       antonym_lexicon: Union[Path, None] = None,
+                       embeddings: Union[Path, None] = None,
+                       mwp: Union[Path, None] = None,
                        ner: bool = False,
-                       ambiguity: bool = False):
+                       ambiguity: bool = False) -> tuple[Union[TfidfVectorizer, None], pd.DataFrame]:
     features = pd.DataFrame(corpus['Label'])
 
+    vectorizer = None
     if tfidf:
-        vectorizer, tfidf_features = calculate_tfidf(corpus, ngram, vectorizer)
+        vectorizer, tfidf_features = calculate_tfidf(corpus, ngram,
+                                                     vectorizer_path)
         features = features.join(tfidf_features)
     if sentiment_lexicon:
         sentiment_features = calculate_sentiment(corpus, sentiment_lexicon)

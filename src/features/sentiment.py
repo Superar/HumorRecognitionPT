@@ -19,9 +19,9 @@ def more_positive_or_negative(instance: pd.Series) -> int:
         return 2
 
 
-def calculate_sentiment(corpus: pd.DataFrame, lexicon: Path) -> tuple[int, int]:
+def calculate_sentiment(corpus: pd.DataFrame, lexicon_path: Path) -> pd.DataFrame:
     corpus = corpus.copy()  # Prevent inplace operations
-    lexicon = pd.read_json(lexicon, orient='index')
+    lexicon = pd.read_json(lexicon_path, orient='index')
     tokens = corpus['Tokens'].map(to_lower)
     logger.debug(f'Sentiment lexicon\n\n{lexicon}')
 

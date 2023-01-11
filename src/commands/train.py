@@ -1,9 +1,9 @@
 from argparse import Namespace
 from logging import getLogger
+
+import joblib
 import pandas as pd
 from src.classification import train_model
-import joblib
-
 
 logger = getLogger('HumorRecognitionPT')
 

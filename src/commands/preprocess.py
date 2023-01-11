@@ -1,8 +1,8 @@
 from argparse import Namespace
 from logging import getLogger
-from src.data import preprocess_data
-import pandas as pd
 
+import pandas as pd
+from src.data import preprocess_data
 
 logger = getLogger('HumorRecognitionPT')
 

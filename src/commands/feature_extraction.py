@@ -1,9 +1,9 @@
+import pickle
 from argparse import Namespace
 from logging import getLogger
-import pickle
-from src.features import calculate_features
-import pandas as pd
 
+import pandas as pd
+from src.features import calculate_features
 
 logger = getLogger('HumorRecognitionPT')
 

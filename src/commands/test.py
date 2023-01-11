@@ -1,8 +1,8 @@
 from argparse import Namespace
 from logging import getLogger
-import pandas as pd
-import joblib
 
+import joblib
+import pandas as pd
 
 logger = getLogger('HumorRecognitionPT')
 

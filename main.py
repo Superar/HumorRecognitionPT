@@ -1,15 +1,9 @@
 import logging
-import pickle
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
-import joblib
-import pandas as pd
-
-from src.classification import train_model
-from src.data import preprocess_data
-from src.features import calculate_features
 from src import commands
+from src.methods import clemencio
 
 
 def parse_args() -> Namespace:
@@ -88,35 +82,9 @@ def parse_args() -> Namespace:
                                 default=False)
     parser_feature.set_defaults(command=commands.feature_extraction)
 
-    # train
-    parser_train = subparsers.add_parser('train')
-    parser_train.add_argument('--input', '-i',
-                              help='Training data in HDF5 format.',
-                              required=True, type=Path)
-    parser_train.add_argument('--output', '-o',
-                              help='Directory path to save the model.',
-                              required=False, type=Path)
-    parser_train.add_argument('--method', '-m',
-                              help='Which classification approach to use from Scikit-learn',
-                              required=False, type=str,
-                              choices=['SVC', 'SVCLinear', 'MultinomialNB',
-                                       'GaussianNB', 'RandomForest'],
-                              default='SVC')
-    parser_train.set_defaults(command=commands.train)
+    # Method parsers
+    clemencio.add_parser(subparsers)
 
-    # test
-    parser_test = subparsers.add_parser('test')
-    parser_test.add_argument('--input', '-i',
-                             help='Test data in JSON format.',
-                             required=True, type=Path)
-    parser_test.add_argument('--model', '-m',
-                             help='Model directory path.',
-                             required=True, type=Path)
-    parser_test.add_argument('--output', '-o',
-                             help='Path to the file to save the predictions in JSON format.',
-                             required=False, type=Path,
-                             default=None)
-    parser_test.set_defaults(command=commands.test)
     return parser.parse_args()
 
 

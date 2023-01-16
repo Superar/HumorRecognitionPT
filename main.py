@@ -3,7 +3,7 @@ from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
 from src import commands
-from src.methods import clemencio
+from src.methods import clemencio, transformer
 
 
 def parse_args() -> Namespace:
@@ -84,6 +84,7 @@ def parse_args() -> Namespace:
 
     # Method parsers
     clemencio.add_parser(subparsers)
+    transformer.add_parser(subparsers)
 
     return parser.parse_args()
 

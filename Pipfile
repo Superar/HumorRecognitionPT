@@ -34,6 +34,9 @@ torch = "*"
 torchvision = "*"
 torchaudio = "*"
 datasets = "*"
+matplotlib = "*"
+odfpy = "*"
+ipython = "*"
 
 [dev-packages]
 autopep8 = "*"

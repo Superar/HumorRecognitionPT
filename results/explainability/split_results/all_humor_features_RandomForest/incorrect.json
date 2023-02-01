@@ -1,0 +1,697 @@
+[
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Sabem como é que o Marco Paulo tira o preservativo ? Dá um peido."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Manchester City vai ser investigado pela UEFA por violar fair-play financeiro."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é o maior problema de um ateu? Não ter ninguém por quem chamar quando está a ter sexo!"
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Medina faz geringonça low cost em Lisboa "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é o cúmulo do aspirador? Ser alérgico ao pó."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"INIMIGO PÚBLICO faz 14 anos e fica apenas a 2 anos de mudar de sexo "
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Entre a dor e o êxtase, as melhores fotografias de nascimentos de 2019."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Bruxelas exige mais transparência à indústria agroalimentar, para consumidores não basta."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Novo Banco: PS desafia Passos Coelho e Maria Luís Albuquerque a explicarem o que correu mal."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Aprovada lei que permite a imigrantes com um ano de descontos obter autorização de residência."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Final do Mundial: vídeo-árbitro manda repetir invasão de campo das Pussy Riot "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Excêntrico milionário Vale e Azevedo quer tornar-se o Donald Trump português "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a cantora preferida dos cirurgiões? É a Anestesia."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a diferença do dente de leite e o Palmeiras? O dente de leite só cai uma vez!"
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"ande o frio por onde andar ao Natal há-de chegar."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Inquilinos com mais de 65 anos vão ter direito a arrendamento vitalício e lugar no Panteão Nacional"
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Operação Marquês: Defesa de Sofia Fava confia que interrogatório irá esclarecer factos."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que fazem os triângulos quando estão cansados? – Eles sin-cos-tan."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Mário Centeno deslumbrado exige ser tratado por ‘senhor engenheiro’ desde que assumiu a presidência do Eurogrupo "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Trump baralha-se e cancela cimeira com Kim e congresso do PS "
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Livro: Marcelo arrisca segundo mandato mas quer ser o Presidente eleito com mais votos."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a parte da frente de um chaparro? É a parte oposta aquela onde o Alentejano vai cagar."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é o fenómeno meteorológico mais natalício? É a rabanada de vento."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Costa declara que 2018 foi um ano excepcional para os portugueses "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a pedra que dança? Arrocha, arrocha, arrocha."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Jussie Smollett, o actor de Empire que alegou ter sido atacado, entregou-se à polícia."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Quem interpreta o papel de James Bond no último filme da série 007? Pierce Brosnan."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Coletes Amarelos querem bloquear Paris durante três dias."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a palavra que nunca diz a verdade? Somente."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Com que idade morreu Fernando Rey? setenta e sete anos."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"CDS vai avançar com proposta para alterar nomeação do governador do BdP."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Casas compradas à Fidelidade são controladas pela Apollo a partir das Ilhas Caimão."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Como se conhece um Alentejano numa praia de nudistas? É o que tem o cú cheio de calos."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Primo cedeu trotineta topo de gama a Sócrates "
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Carlos Costa vai ser o alvo político dos deputados pela quarta vez."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Sabem o que está a fazer um homenzinho a arrastar uma pá de cinzas por uma coleira pela rua fora ? Provavelmente é um elemento da GESTAPO a passear o seu Judeu de estimação."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"a cabeça não se fez só para usar chapéu."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Real Academia espanhola afasta Portugal e diz que primeira volta ao Mundo foi exclusivamente de Espanha."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Paulo Trigo Pereira quer ver reduzido o esforço orçamental exigido ao país."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Onde desagua o rio Cubango? deserto do Kalahari."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Joana Vasconcelos pendura G3 gigante sobre o quartel de Tancos "
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Presidente da JSD acusa Governo de ser \"campeão\" das desigualdades."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"PSP deteve mais de 500 pessoas na operação de Carnaval."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é o antônimo de simpatia? Nãopotio."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Lei votada hoje: adolescentes que não queiram mudar de sexo podem antes mudar de banco que vão resgatar"
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Mugabe só deixa a presidência se lhe garantirem a reforma por inteiro "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a tecla preferida dos astronautas? O espaço."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que é que o protão disse ao electrão? Hoje estás muito negativo..."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Presidente promulga dia de luto nacional pelas vítimas de violência doméstica."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Cinema de Gabriel Abrantes em retrospectiva no festival Córtex."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Guterres fez juramento da Carta das Nações Unidas, da carta de pesados de passageiros e da carta de vinhos "
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Botswana quer legalizar caça de elefantes pondo em risco o maior santuário de África."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a cantora que partilha mais músicas? A Cher."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Colecção Teixeira de Freitas é mostrada em Madrid: “Acho ridículo abrir um museu com a minha colecção”."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Sem aulas ou recolha de lixo e com consultas adiadas – é esta a expectativa dos sindicatos."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Tailored Tile: dar forma ao plástico desperdiçado, para o colar nas paredes."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Treinador benfiquista Bruno Lage foi chamado de urgência esta manhã e o Novo Banco passou imediatamente a dar lucro."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Portugal quer amortizar 10 mil milhões ao FMI com empréstimo de 11 mil milhões do FMI "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que o tomate foi fazer no banco? Tirar o extrato."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"A dois dias do Carnaval, sambódromo do Rio de Janeiro está em risco de fechar."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Como as loiras tentam matar um peixe?  Afogando-o!"
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é o cúmulo da confiança? Dois canibais a fazer um 69!"
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Quantos empregados tinha o grupo HP no final de 1994? 98400."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Pedro Marques critica “duo Melo\/Rangel” e “aquele alemão” que eles apoiam."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Quem é o embaixador de Portugal em França? José Maria Shearman de Macedo."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Como comer pão sempre fresco ? Nem sempre é fácil ter pão fresco em casa, principalmente de manhã ao levantar."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Que realizador de cinema italiano foi premiado com um Óscar? Michelangelo Antonioni."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Sabem como é que os ouriços-cacheiros se reproduzem? Muito devagarinho e com muito cuidado!"
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Sabes porque é que no Iraque não se ensina código da estrada e educação sexual no mesmo dia ? Porque eles não querem gastar o camelo."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Vários estabelecimentos assaltados no Mercado de Santiago em Aveiro."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Donativos de Pedrogão foram torrados no mecânico a tentar arranjar o camião do SIRESP "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é o inquilino mais infeliz do mundo? É o espermatozóide. O condomínio dele é um saco, a casa dele é um ovo, o vizinho da frente é um pentelho, o de trás só faz cagada e o proprietário do imóvel quando fica duro põe ele pra fora."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Tribunal aceita abandono escolar de jovem de 15 anos porque milita numa juventude partidária "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Quantos militares são precisos para mudar uma lâmpada? Cinco. Um general para mandar um coronel mandar o capitão mandar o sargento mandar o soldado trocar a lâmpada."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Como lavar panelas de alumínio? Hoje em dia as panelas de alumínio, não se usam muito, porque foram em grande escala substituídar pelas panelas de inox ou mesmo em ferro."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Qual o título do filme de Stephen Frears com Glenn Close, John Malkovich e Michelle Pfeiffer? Ligações perigosas."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Como diminuir a barriga? Poucas pessoas conseguem evitar, após os 35 ou 40 anos, um acréscimo de gordura ou músculos flácidos à volta da cintura."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Que nome se dá à claque da Pescanova? Ultra congelados."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Porque é que o Power Point está feliz? Porque teve um diapositivo."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Encerramento do espaço aéreo atrasou 11 voos em Lisboa e fez divergir cinco para o Porto."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Porque é que a Branca de Neve desmaiou ao comer a maçã? Apanhou sidra."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Ana Catarina estava no bingo e o telefone tocou: \"És a melhor guarda-redes do mundo\"."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Onde há rio sem água? No mapa."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"se o gosto é mais que o proveito, daí o trato por desfeito."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que são duas irmãs, uma no lado direito e outra no lado esquerdo, que escutam muito bem? As orelhas."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Falta de chuva é \"variação normal\" mas preocupa especialistas."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Sobre que continente está o buraco do ozono? o continente americano."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"quem acompanha morcego acorda de cabeça pra baixo."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é o cúmulo da preguiça? Casar com uma mulher grávida de outro."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Directora da BTL diz que edição deste ano vai ser “a maior de sempre\"."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Fátima Lopes considera que apresentou a sua \"melhor colecção\" em Paris."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Simpsons admitem que não seriam capazes de prever que a Geringonça se ia safar"
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Quantas loiras são necessárias para se trocar uma lâmpada?  Uma. Ela segura a lâmpada e o mundo gira ao redor dela."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que é, o que é? Quanto mais aumenta, menos se vê? A escuridão."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Sindicato de enfermeiros acusa Governo de \"esconder\" parecer da PGR durante 81 dias."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"não queira o sapateiro tocar rabecão."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"quando o lobo vai por seu pé, não come o que quer."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Sobre que área foi observado o fenómeno conhecido como \"buraco do ozono\"? Antárctida."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Trabalhadores que fazem roupa para marcas australianas não conseguem sair da pobreza."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Que comissão internacional condenou pela primeira vez formalmente o anti-semitismo e a xenofobia? a Comissão dos Direitos Humanos da ONU."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"os cegos por ambição ainda vêem menos, que os cegos por nascimento."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Como é que se diz 'mulher de meia-idade' em russo: Pachacha Seminova."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Porque é que o café impede de dormir ? O café contém um produto que é a cafeina."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual o maior verso que há? Universo."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que faz um alentejano calçado com galochas, no Estádio da Luz? Está à espera da ENCHENTE."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Quando preto é bonito? Quando vai preso! O delegado olha para o Boletim de Ocorrência e comenta: \"Muito bonito, hein? \""
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Sabe porque os ricos nunca têm filho de proveta? Porque pra ser filho de rico, tem de ser metido!!"
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a posição preferida dos minerais? De quartzo."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Como envergonhas um arqueólogo? Dás-lhe um tampão e perguntas de que período data."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"com mulher louca, andem as mãos e cale-se a boca."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que é um ponto amarelo num Ferrari? É um milhonário."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Basílio Horta reclama vitória em Sintra com 5% mas logo a seguir corrige para 5.000.000% dos votos "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Marie Kondo contratada pelo governo para arrumar a CGD"
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Filme Parque Mayer lidera nomeações aos prémios da Academia Portuguesa de Cinema."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"não se pescam trutas a bragas enxutas."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Franceses descobrem com horror que os croatas têm um avançado chamado Éderic "
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Que presidente americano não se apresentou ao serviço militar? Clinton."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que é, o que é? Quebra quando se fala. O segredo."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Selma Blair explica na televisão o que é ter esclerose múltipla."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Catarina Martins considera que moção de censura \"não é para ser levada a sério\"."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Usar a “casca de camarão” para proteger esculturas públicas?."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Quem é Juan António Samaranch? presidente do Comité Olímpico Internacional."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"todos os caminhos vão dar a Roma."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Como fazer um escalda-pés? O escalda-pés é o tratamento que todos os pés merecem, depois de dias cansativos com saltos altos em correrias desenfreadas."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Preços “proibitivos” já estão a \"travar\" venda de casas."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Trabalhador ferido nas minas de Aljustrel continua em estado grave no hospital de Beja."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Arábia Saudita: Jorge Jesus já está à procura de uma pirâmide onde viver "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Votos perdidos pela CDU foram direitos para o PS: para compensar, Jerónimo exige ministério das finanças a Costa "
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Rui Rio diz que Carlos Costa tem de avaliar se \"deve sair pelo próprio pé\"."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Contribuintes têm até ao final do dia para validar facturas."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Onde é o castelo Esterhazy? em Eisenstadt."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que são vários pontinhos piscando no escuro? Uma centopéia de New-Balance."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Reino Unido não só revoga Brexit como ainda adere à CPLP "
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Sabem como se dobra o valor comercial de um Lada? Enche-se o depósito de gasolina."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Que produto usa a Madonna no cabelo? Laca virgin."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Papa agradeceu, mas (ainda) não aceitou o repto para ser vegan na Quaresma."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Nicolas Maduro mandou fechar fronteiras terrestres da Venezuela com o Brasil e da Venezuela com Portugal."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que é os turcos usam para fazer o chá? Istan bule."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Sabes de onde se extrai a pura lã virgem ? ? ? ? Das ovelhas que correm mais que o pastor!"
+    }
+]

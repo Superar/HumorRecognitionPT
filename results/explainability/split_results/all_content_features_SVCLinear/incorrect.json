@@ -1,0 +1,102 @@
+[
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Novo Banco: PS desafia Passos Coelho e Maria Luís Albuquerque a explicarem o que correu mal."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual é a pedra que dança? Arrocha, arrocha, arrocha."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Como se chamaria a filha da Xuxa com o Senna? Raxa."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que a formiga falou para a barata? O seu marido é maior barato."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Onde há rio sem água? No mapa."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que são duas irmãs, uma no lado direito e outra no lado esquerdo, que escutam muito bem? As orelhas."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Quantas loiras são necessárias para se trocar uma lâmpada?  Uma. Ela segura a lâmpada e o mundo gira ao redor dela."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Estavam dois caminhões voando, quando um deles falou: “Peraí, caminhão não voa”. Então o outro caiu. Por que o outro caminhão não caiu? Porque ele é caminhão “pipa”."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual o maior verso que há? Universo."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Qual é a capital da província da Cabília? Tizi-Ouzou."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Como se colocam quatro elefantes dentro de um Mini ? Dois à frente e dois atrás."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"A mãe de Aline tem três filhas. A primeira se chama Xaxá, a segunda se chama Xexé. Qual é o nome da terceira filha? Aline."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Como envergonhas um arqueólogo? Dás-lhe um tampão e perguntas de que período data."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Com quantos paus se faz uma canoa? Com um só. Quando a criança nascer, é só batizá-la de “Canoa”."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Qual é a nacionalidade de Aristóteles Onassis? grego."
+    },
+    {
+        "Label":"N",
+        "Prediction":"H",
+        "Text":"Porque é que os gatos se lavam ? Efectivamente os gatos são muito limpos e delicados, meia volta os gatos fazem a limpeza com a própria língua deles."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Sabes qual é a fruta favorita do namorado da Mara? Maracujá."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Que produto usa a Madonna no cabelo? Laca virgin."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"Qual a única pedra que fica em cima da água? A pedra de gelo."
+    },
+    {
+        "Label":"H",
+        "Prediction":"N",
+        "Text":"O que é os turcos usam para fazer o chá? Istan bule."
+    }
+]

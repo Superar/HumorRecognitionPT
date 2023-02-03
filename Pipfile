@@ -37,6 +37,7 @@ datasets = "*"
 matplotlib = "*"
 odfpy = "*"
 ipython = "*"
+sentence-transformers = "*"
 
 [dev-packages]
 autopep8 = "*"

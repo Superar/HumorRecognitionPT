@@ -10,7 +10,7 @@ logger = logging.getLogger('HumorRecognitionPT')
 def highest_character_ngram(tokens: pd.Series, n: int):
     char_ngrams = tokens.apply(
         lambda x: list(ngrams(x, n)))  # Series of list of ngrams
-    char_ngrams = char_ngrams.explode(column=0)  # Flatten into a Series of ngrams
+    char_ngrams = char_ngrams.explode().dropna()  # Flatten into a Series of ngrams
     highest_ngram_count = char_ngrams.value_counts().max()
     return highest_ngram_count
 

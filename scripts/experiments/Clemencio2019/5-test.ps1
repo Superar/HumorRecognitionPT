@@ -1,4 +1,4 @@
-. .\scripts\Clemencio2019\0-variables.ps1
+. .\scripts\experiments\Clemencio2019\0-variables.ps1
 
 # ------------- CONTENT FEATURES -------------
 Write-Host 'CONTENT FEATURES' -ForegroundColor DarkGreen -BackgroundColor Red -NoNewline

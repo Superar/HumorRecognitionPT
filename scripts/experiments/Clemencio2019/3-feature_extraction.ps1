@@ -1,4 +1,4 @@
-. .\scripts\Clemencio2019\0-variables.ps1
+. .\scripts\experiments\Clemencio2019\0-variables.ps1
 
 $TRAIN_FILE = $SPLIT_CORPUS_PATH + '\train.json'
 $TEST_FILE = $SPLIT_CORPUS_PATH + '\test.json'

@@ -36,6 +36,10 @@ def parse_args() -> Namespace:
                                 help='Flag to use TF-IDF counts',
                                 required=False, action='store_true',
                                 default=False)
+    parser_feature.add_argument('--max_tfidf',
+                                help='Maximum number of TF-IDF features to consider',
+                                required=False, type=int,
+                                default=1000)
     parser_feature.add_argument('--vectorizer',
                                 help='Path to the pickled TfIdfVectorizer to use for TF-IDF counts',
                                 required=False, type=Path,

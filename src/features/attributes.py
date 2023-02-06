@@ -3,18 +3,19 @@ from pathlib import Path
 from typing import Union
 
 import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
 from src.features import (calculate_alliteration, calculate_ambiguity,
                           calculate_antonym, calculate_embeddings,
                           calculate_imageability_concreteness, calculate_ner,
                           calculate_sentiment, calculate_slang,
                           calculate_tfidf)
-from sklearn.feature_extraction.text import TfidfVectorizer
 
 logger = logging.getLogger('HumorRecognitionPT')
 
 
 def calculate_features(corpus: pd.DataFrame,
                        tfidf: bool = False,
+                       max_tfidf: int = 1000,
                        vectorizer_path: Union[Path, None] = None,
                        ngram: str = '1+2+3',
                        sentiment_lexicon: Union[Path, None] = None,
@@ -30,7 +31,8 @@ def calculate_features(corpus: pd.DataFrame,
     vectorizer = None
     if tfidf:
         vectorizer, tfidf_features = calculate_tfidf(corpus, ngram,
-                                                     vectorizer_path)
+                                                     vectorizer_path,
+                                                     max_tfidf)
         features = features.join(tfidf_features)
     if sentiment_lexicon:
         sentiment_features = calculate_sentiment(corpus, sentiment_lexicon)

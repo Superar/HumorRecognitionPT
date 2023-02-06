@@ -13,6 +13,7 @@ def feature_extraction(args: Namespace):
     logger.debug(f'Corpus\n\n{corpus}')
     vectorizer, features = calculate_features(corpus,
                                               args.tfidf,
+                                              args.max_tfidf,
                                               args.vectorizer,
                                               args.ngram,
                                               args.sentlex,

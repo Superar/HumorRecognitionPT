@@ -11,7 +11,8 @@ logger = logging.getLogger('HumorRecognitionPT')
 
 def calculate_tfidf(corpus: pd.DataFrame,
                     ngram: str = '1+2+3',
-                    vectorizer_file: Union[Path, None] = None) -> tuple[TfidfVectorizer, pd.DataFrame]:
+                    vectorizer_file: Union[Path, None] = None,
+                    max_features: int = 1000) -> tuple[TfidfVectorizer, pd.DataFrame]:
     global dummy_tokenizer
     def dummy_tokenizer(toks): return toks
 
@@ -29,7 +30,7 @@ def calculate_tfidf(corpus: pd.DataFrame,
                                      preprocessor=dummy_tokenizer,
                                      ngram_range=ngram_range,
                                      min_df=2, max_df=0.75,
-                                     max_features=1000)
+                                     max_features=max_features)
         logger.debug('Fitting new vectorizer')
         vectorizer = vectorizer.fit(corpus['Tokens'])
         logger.debug('Vectorizer fit complete')

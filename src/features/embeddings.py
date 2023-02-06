@@ -34,8 +34,10 @@ def calculate_embeddings(corpus: pd.DataFrame,
     logger.info('Calculating similarity')
     similarity = tokens.map(lambda x: calculate_similarity(x, embeddings))
     similarity = pd.DataFrame(similarity.to_list(),
-                              columns=['Average similarity', 'Minimum similarity'],
+                              columns=['Average similarity',
+                                       'Minimum similarity'],
                               index=corpus.index)
+    corpus = corpus.join(similarity)
     logger.debug(f'Similarity\n\n{similarity}')
 
-    return similarity
+    return corpus[['OoV', 'Average similarity', 'Minimum similarity']]

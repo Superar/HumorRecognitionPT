@@ -38,6 +38,7 @@ matplotlib = "*"
 odfpy = "*"
 ipython = "*"
 sentence-transformers = "*"
+shap = "*"
 
 [dev-packages]
 autopep8 = "*"

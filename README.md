@@ -70,7 +70,7 @@ $ python main.py [-h] [--verbose] {preprocess,feature-extraction,feat,clemencio,
 $ python main.py preprocess [-h] --input INPUT [--output OUTPUT]
 ```
 
-- `feature-extraction` or `feat` -- Feature extraction required for the method `clemencio`. It requires various arguments for calculating different kinds of features. For more information about these arguments we refer to [DOCS].
+- `feature-extraction` or `feat` -- Feature extraction required for the method `clemencio`. It requires various arguments for calculating different kinds of features. For more information about these arguments we refer to [`docs\FEATURES.md`](https://github.com/Superar/HumorRecognitionPT/blob/master/docs/FEATURES.md).
 
 ```shell
 $ python main.py feature-extraction [-h] --input INPUT [--output OUTPUT] [--tfidf]
